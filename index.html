@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SampleApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.24/angular.js"></script>
+  <script src="angularfire.min.js"></script>
+  <script src="firebase.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="app.js"></script>
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body ng-controller="SampleCtrl">
+  
+  <ul>
+    <li ng-repeat="message in messages">
+        <input ng-model="message.text" ng-change="messages.$save(message)">
+        <button ng-click="messages.$remove(message)">x</button>
+
+
+
+    </li>
+  </ul>
+  <ul>
+    <form ng-submit="addMessage(newMessageText)">
+      <input ng-model="newMessageText" />
+      <button type="submit">add message</button>
+
+    </form>
+  </ul>
+</body>
+</html>
